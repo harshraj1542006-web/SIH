@@ -1,0 +1,27 @@
+{
+  "name": "sahakari-shramik-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for Sahakari Shramik - Cooperative Digital Service Marketplace for Skilled Labour Workers",
+  "scripts": {
+    "start": "npx --yes serve .",
+    "dev": "npx --yes serve ."
+  },
+  "keywords": [
+    "cooperative",
+    "labour",
+    "marketplace",
+    "express",
+    "mongodb",
+    "sih"
+  ],
+  "author": "Sahakari Shramik Team",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.5"
+  }
+}
