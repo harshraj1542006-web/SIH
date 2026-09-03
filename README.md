@@ -25,26 +25,27 @@ A modern, cooperative-owned digital platform connecting verified skilled labour 
 ```
 d:\SIH\
 │
-├── index.html                  # Homepage (Hero, Search, 10 Categories, SOS Banner, How it Works, Why Co-op, Stats, Testimonials, Footer)
-├── services.html               # Services Marketplace (Live category & price filters, search, rating filter, worker cards, modal)
-├── booking.html                # Booking Portal (Service/worker selector, date/time slots, emergency SOS, fair-wage price calculator)
-├── auth.html                   # Dual Citizen & Worker Auth (with 1-click Hackathon demo switch buttons)
-├── worker-register.html        # Worker Onboarding (Society ID, trade skills, certs, KYC, DBT bank/UPI details)
-├── customer-dashboard.html     # Customer Hub (Active booking tracker with live steps, OTP cards, booking history, worker review modal)
-├── worker-dashboard.html       # Worker Portal (Online/busy/offline switch, incoming request queue with Accept/Reject, active jobs, earnings ledger)
-│
-├── css/
-│   ├── style.css               # Core design system, variables, responsive grid, navbar, hero, comparison table, footer
-│   ├── components.css          # Cards, modals, forms, toast notifications, search filters, wizard layout
-│   └── dashboard.css           # Metrics cards, status pills, tables, progress step trackers, availability switch
-│
-├── js/
-│   ├── data.js                 # Seed database: 10 trade categories, 20+ verified cooperative workers, societies, initial bookings
-│   ├── store.js                # LocalStorage persistence layer: stores new bookings, registered workers, auth status, ratings
-│   ├── app.js                  # Global application scripts: mobile navigation, toast alerts, session indicators
-│   ├── services.js             # Live marketplace search, filtering, and worker profile preview modal
-│   ├── booking.js              # Booking wizard, time slot selector, dynamic price & welfare fund calculation, booking creation
-│   └── dashboard.js            # Customer and worker dashboard controllers, booking acceptance/rejection, job completion flow
+├── frontend/
+│   ├── index.html              # Homepage (Hero, Search, 10 Categories, SOS Banner, How it Works, Why Co-op, Stats, Testimonials, Footer)
+│   ├── services.html           # Services Marketplace (Live category & price filters, search, rating filter, worker cards, modal)
+│   ├── booking.html            # Booking Portal (Service/worker selector, date/time slots, emergency SOS, fair-wage price calculator)
+│   ├── auth.html               # Dual Citizen & Worker Auth (with 1-click Hackathon demo switch buttons)
+│   ├── worker-register.html    # Worker Onboarding (Society ID, trade skills, certs, KYC, DBT bank/UPI details)
+│   ├── customer-dashboard.html # Customer Hub (Active booking tracker with live steps, OTP cards, booking history, worker review modal)
+│   ├── worker-dashboard.html   # Worker Portal (Online/busy/offline switch, incoming request queue with Accept/Reject, active jobs, earnings ledger)
+│   │
+│   ├── css/
+│   │   ├── style.css           # Core design system, variables, responsive grid, navbar, hero, comparison table, footer
+│   │   ├── components.css      # Cards, modals, forms, toast notifications, search filters, wizard layout
+│   │   └── dashboard.css       # Metrics cards, status pills, tables, progress step trackers, availability switch
+│   │
+│   └── js/
+│       ├── data.js             # Seed database: 10 trade categories, 20+ verified cooperative workers, societies, initial bookings
+│       ├── store.js            # LocalStorage persistence layer: stores new bookings, registered workers, auth status, ratings
+│       ├── app.js              # Global application scripts: mobile navigation, toast alerts, session indicators
+│       ├── services.js         # Live marketplace search, filtering, and worker profile preview modal
+│       ├── booking.js          # Booking wizard, time slot selector, dynamic price & welfare fund calculation, booking creation
+│       └── dashboard.js        # Customer and worker dashboard controllers, booking acceptance/rejection, job completion flow
 │
 └── README.md                   # Project documentation and guide
 ```
@@ -68,20 +69,20 @@ d:\SIH\
 ## 🚀 How to Run the Project
 
 ### Option 1: Direct Browser Launch (No installation required)
-Simply double-click `index.html` or right-click `index.html` and select **Open with Google Chrome / Microsoft Edge / Firefox**.
+Simply open `frontend/index.html` in Google Chrome, Microsoft Edge, or Firefox.
 
 ### Option 2: Using Node.js or Python Local Server
 Open your terminal in the `d:\SIH` folder:
 
 **Using Python:**
 ```bash
-python -m http.server 3000
+python -m http.server 3000 --directory frontend
 ```
 Then visit: `http://localhost:3000`
 
 **Using Node.js (npx serve):**
 ```bash
-npx serve .
+npx serve frontend
 ```
 Then visit the URL shown in terminal.
 
@@ -89,7 +90,7 @@ Then visit the URL shown in terminal.
 
 ## 🎯 Recommended Presentation Demo Flow for Jury
 
-1. **Homepage (`index.html`)**:
+1. **Homepage (`frontend/index.html`)**:
    - Showcase the official cooperative branding, 10 categories, the comparison table between Cooperative vs. Private Aggregators, and the Emergency 30-min SOS banner.
    - Use the search bar to search for "Electrician" or "Plumber".
 
