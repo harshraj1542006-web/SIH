@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Registration | Sahakari Shramik</title>
+  <meta name="description" content="Secure portal login for customers and certified cooperative workers.">
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="brand-logo">
+          <div class="logo-icon-box">
+            <i class="fa-solid fa-hands-holding-circle"></i>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">SAHAKARI SHRAMIK</span>
+            <span class="brand-subtitle">Labour Cooperative Federation Portal</span>
+          </div>
+        </a>
+
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="booking.html" class="nav-link">Book Worker</a></li>
+          <li><a href="customer-dashboard.html" class="nav-link">Customer Hub</a></li>
+          <li><a href="worker-dashboard.html" class="nav-link">Worker Portal</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <div id="headerUserIndicator" class="nav-user-indicator" style="display: none;"></div>
+          <a href="worker-register.html" class="btn btn-accent btn-sm">
+            <i class="fa-solid fa-helmet-safety"></i> Worker Registration
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Auth Box -->
+  <main class="section" style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 0;">
+    <div class="container" style="max-width: 520px;">
+
+      <!-- Hackathon Rapid Demo Switcher Card -->
+      <div style="background: #0f2b48; color: #ffffff; border-radius: var(--radius-lg); padding: 18px 24px; margin-bottom: 24px; box-shadow: var(--shadow-md);">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+          <span style="font-size: 0.8rem; font-weight: 700; color: #fde047; text-transform: uppercase; letter-spacing: 0.8px;">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Hackathon Quick Switch
+          </span>
+          <span class="badge badge-coop" style="background: rgba(255,255,255,0.15); color: #fff; border: none;">Demo Mode</span>
+        </div>
+        <p style="font-size: 0.82rem; color: #cbd5e1; margin-bottom: 14px;">
+          Switch roles instantly to test both the Citizen and Worker experiences:
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <button class="btn btn-outline-white btn-sm" onclick="demoLogin('customer')">
+            <i class="fa-solid fa-user"></i> Login as Citizen
+          </button>
+          <button class="btn btn-accent btn-sm" onclick="demoLogin('worker')">
+            <i class="fa-solid fa-helmet-safety"></i> Login as Worker
+          </button>
+        </div>
+      </div>
+
+      <!-- Auth Container Card -->
+      <div class="booking-wizard-card" style="padding: 36px 30px;">
+
+        <!-- Tab Switcher -->
+        <div class="dashboard-tabs" style="justify-content: center; margin-bottom: 24px;">
+          <button class="tab-btn active" id="tabCustomerBtn" onclick="switchAuthTab('customer')">
+            <i class="fa-solid fa-house-user"></i> Citizen Portal
+          </button>
+          <button class="tab-btn" id="tabWorkerBtn" onclick="switchAuthTab('worker')">
+            <i class="fa-solid fa-helmet-safety"></i> Cooperative Worker
+          </button>
+        </div>
+
+        <!-- Customer Form -->
+        <div id="customerAuthPanel">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <h2 style="font-size: 1.4rem; color: var(--primary); font-weight: 800;">Citizen Account Access</h2>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">Manage your bookings, track worker dispatches, and review services.</p>
+          </div>
+
+          <form id="customerLoginForm">
+            <div class="form-group">
+              <label class="form-label" for="custPhone">Mobile Phone Number</label>
+              <div class="input-icon-wrap">
+                <i class="fa-solid fa-phone"></i>
+                <input type="tel" id="custPhone" class="form-control" placeholder="+91 98765 43210" value="+91 98765 43210" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="custOtp">One-Time Password (OTP)</label>
+              <div class="input-icon-wrap">
+                <i class="fa-solid fa-key"></i>
+                <input type="text" id="custOtp" class="form-control" placeholder="Enter 4-digit code" value="5429" required>
+              </div>
+              <span class="form-text">Demo code pre-filled: <strong>5429</strong></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 10px;">
+              <i class="fa-solid fa-right-to-bracket"></i> Login to Customer Hub
+            </button>
+          </form>
+
+          <div style="text-align: center; margin-top: 20px; font-size: 0.85rem; color: var(--text-muted);">
+            Need a service urgently? <a href="services.html" style="color: var(--accent); font-weight: 700;">Browse Marketplace</a>
+          </div>
+        </div>
+
+        <!-- Worker Form -->
+        <div id="workerAuthPanel" style="display: none;">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <h2 style="font-size: 1.4rem; color: var(--primary); font-weight: 800;">Cooperative Worker Access</h2>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">View incoming job dispatches, toggle availability, and track welfare earnings.</p>
+          </div>
+
+          <form id="workerLoginForm">
+            <div class="form-group">
+              <label class="form-label" for="workerIdInput">Worker Roll ID or Mobile Number</label>
+              <div class="input-icon-wrap">
+                <i class="fa-solid fa-id-badge"></i>
+                <input type="text" id="workerIdInput" class="form-control" placeholder="e.g. wrk-101 or 9811234501" value="wrk-101" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="workerSocietySelect">Primary Cooperative Society</label>
+              <select id="workerSocietySelect" class="form-control">
+                <option value="Delhi Central Labour Co-op #DL-14">Delhi Central Labour Co-op #DL-14</option>
+                <option value="South Delhi Shramik Seva #DL-22">South Delhi Shramik Seva #DL-22</option>
+                <option value="Noida-Ghaziabad Labour Co-op #UP-09">Noida-Ghaziabad Labour Co-op #UP-09</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-accent btn-lg" style="width: 100%; margin-top: 10px;">
+              <i class="fa-solid fa-right-to-bracket"></i> Login to Worker Portal
+            </button>
+          </form>
+
+          <div style="text-align: center; margin-top: 20px; font-size: 0.85rem; color: var(--text-muted);">
+            New artisan? <a href="worker-register.html" style="color: var(--welfare-green); font-weight: 700;">Register as Worker</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="padding: 24px 0;">
+    <div class="container" style="text-align: center; font-size: 0.82rem; color: #64748b;">
+      &copy; 2026 Sahakari Shramik Seva • Labour Cooperative Federations. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    function switchAuthTab(role) {
+      const custBtn = document.getElementById('tabCustomerBtn');
+      const wrkBtn = document.getElementById('tabWorkerBtn');
+      const custPanel = document.getElementById('customerAuthPanel');
+      const wrkPanel = document.getElementById('workerAuthPanel');
+
+      if (role === 'customer') {
+        custBtn.classList.add('active');
+        wrkBtn.classList.remove('active');
+        custPanel.style.display = 'block';
+        wrkPanel.style.display = 'none';
+      } else {
+        custBtn.classList.remove('active');
+        wrkBtn.classList.add('active');
+        custPanel.style.display = 'none';
+        wrkPanel.style.display = 'block';
+      }
+    }
+
+    function demoLogin(role) {
+      if (role === 'customer') {
+        CoopStore.setCurrentUser({
+          role: 'customer',
+          id: 'cust-01',
+          name: 'Rajesh Kumar',
+          phone: '+91 98765 43210',
+          email: 'rajesh.kumar@example.com',
+          city: 'New Delhi'
+        });
+        showToast('Logged In as Customer', 'Welcome back, Rajesh Kumar!', 'success');
+        setTimeout(() => {
+          window.location.href = 'customer-dashboard.html';
+        }, 500);
+      } else {
+        CoopStore.setCurrentUser({
+          role: 'worker',
+          id: 'wrk-101',
+          name: 'Ramesh Sharma',
+          phone: '+91 98112 34501',
+          society: 'Delhi Central Labour Co-op #DL-14',
+          category: 'electrician'
+        });
+        showToast('Logged In as Worker', 'Welcome back, Ramesh Sharma!', 'success');
+        setTimeout(() => {
+          window.location.href = 'worker-dashboard.html';
+        }, 500);
+      }
+    }
+
+    document.getElementById('customerLoginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      demoLogin('customer');
+    });
+
+    document.getElementById('workerLoginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const workerIdInput = document.getElementById('workerIdInput').value.trim();
+      const matched = CoopStore.getWorkerById(workerIdInput);
+      if (matched) {
+        CoopStore.setCurrentUser({
+          role: 'worker',
+          id: matched.id,
+          name: matched.name,
+          phone: matched.phone,
+          society: matched.society,
+          category: matched.category
+        });
+        showToast('Logged In as Worker', `Welcome back, ${matched.name}!`, 'success');
+        setTimeout(() => {
+          window.location.href = 'worker-dashboard.html';
+        }, 500);
+      } else {
+        demoLogin('worker');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sahakari Shramik | Cooperative Digital Service Marketplace</title>
+  <meta name="description" content="A cooperative-owned digital marketplace connecting verified skilled labour workers with households while ensuring fair wages and worker welfare.">
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Top Government / Cooperative Announcement Bar -->
+  <div class="top-gov-bar">
+    <div class="container">
+      <div class="gov-badge-left">
+        <div class="gov-tricolor-line">
+          <span></span><span></span><span></span>
+        </div>
+        <span>An Initiative under Labour Cooperative Federations & National Cooperative Network</span>
+      </div>
+      <div class="gov-badge-right">
+        <a href="booking.html?emergency=true" class="emergency-quick-chip">
+          <i class="fa-solid fa-bolt-lightning"></i> Emergency SOS: 1800-COOP-SHRAMIK
+        </a>
+        <select class="lang-select-mock" aria-label="Select Language">
+          <option>English</option>
+          <option>हिन्दी (Hindi)</option>
+          <option>मराठी (Marathi)</option>
+          <option>தமிழ் (Tamil)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Header & Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="brand-logo">
+          <div class="logo-icon-box">
+            <i class="fa-solid fa-hands-holding-circle"></i>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">SAHAKARI SHRAMIK</span>
+            <span class="brand-subtitle">Labour Cooperative Federation Portal</span>
+          </div>
+        </a>
+
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="#why-cooperative" class="nav-link">Why Cooperative</a></li>
+          <li><a href="booking.html" class="nav-link">Book Worker</a></li>
+          <li><a href="customer-dashboard.html" class="nav-link">Customer Hub</a></li>
+          <li><a href="worker-dashboard.html" class="nav-link">Worker Portal</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <div id="headerUserIndicator" class="nav-user-indicator" style="display: none;"></div>
+          <a href="auth.html" class="btn btn-outline btn-sm">
+            <i class="fa-regular fa-user"></i> Login
+          </a>
+          <a href="worker-register.html" class="btn btn-accent btn-sm">
+            <i class="fa-solid fa-helmet-safety"></i> Join as Worker
+          </a>
+          <button class="mobile-toggle-btn" aria-label="Toggle navigation menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-tag">
+            <i class="fa-solid fa-certificate"></i> Verified Labour Cooperative Societies
+          </div>
+          <h1 class="hero-title">
+            Skilled Labour Services with <span>Guaranteed Fair Wages</span> & Welfare
+          </h1>
+          <p class="hero-lead">
+            Empowering certified electricians, plumbers, carpenters, caregivers, and technicians. Connect directly with verified cooperative members — zero predatory aggregator cuts, transparent pricing, and citizen trust.
+          </p>
+
+          <!-- Hero Search Component -->
+          <form class="hero-search-box" action="services.html" method="GET">
+            <div class="search-field">
+              <i class="fa-solid fa-briefcase"></i>
+              <select name="category" aria-label="Select Trade Category">
+                <option value="">All 10 Trade Categories</option>
+                <option value="electrician">Electrician</option>
+                <option value="plumber">Plumber</option>
+                <option value="carpenter">Carpenter</option>
+                <option value="painter">Painter</option>
+                <option value="domestic_helper">Domestic Helper</option>
+                <option value="caregiver">Caregiver</option>
+                <option value="driver">Driver</option>
+                <option value="gardener">Gardener</option>
+                <option value="cleaner">Cleaner</option>
+                <option value="technician">Technician</option>
+              </select>
+            </div>
+            <div class="search-divider"></div>
+            <div class="search-field">
+              <i class="fa-solid fa-location-dot"></i>
+              <input type="text" name="search" placeholder="Enter City, PIN, or Landmark..." aria-label="Location or skill search">
+            </div>
+            <button type="submit" class="btn btn-accent">
+              <i class="fa-solid fa-magnifying-glass"></i> Find Worker
+            </button>
+          </form>
+
+          <!-- Trust Badges -->
+          <div class="hero-trust-row">
+            <div class="trust-item">
+              <i class="fa-solid fa-shield-check"></i>
+              <span>100% Police & Society Verified</span>
+            </div>
+            <div class="trust-item">
+              <i class="fa-solid fa-scale-balanced"></i>
+              <span>State Standard Fair Wages</span>
+            </div>
+            <div class="trust-item">
+              <i class="fa-solid fa-heart-pulse"></i>
+              <span>Worker Welfare Fund Included</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right Preview Card -->
+        <div class="hero-preview-wrapper">
+          <div class="hero-card-preview">
+            <div class="preview-badge-top">
+              <span class="badge badge-verified"><i class="fa-solid fa-circle-check"></i> Active Dispatch</span>
+              <span class="society-tag">Delhi Central Co-op #DL-14</span>
+            </div>
+
+            <div class="worker-quick-profile">
+              <div class="worker-avatar-mock">RS</div>
+              <div class="worker-info-meta">
+                <h4>Ramesh Sharma</h4>
+                <p><i class="fa-solid fa-bolt"></i> Master Electrician (ITI & NSDC)</p>
+                <div class="worker-skills-chips">
+                  <span>Wiring</span>
+                  <span>Short Circuit</span>
+                  <span>Inverter Setup</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 14px; font-size: 0.88rem;">
+              <div>
+                <span style="color: #cbd5e1;">Fair Standard Rate:</span>
+                <div style="font-size: 1.25rem; font-weight: 800; color: #ffaa42;">₹249 / hr</div>
+              </div>
+              <a href="booking.html?workerId=wrk-101&category=electrician" class="btn btn-accent btn-sm">
+                Book Verified Worker
+              </a>
+            </div>
+
+            <div class="coop-guarantee-box">
+              <h5><i class="fa-solid fa-handshake-angle"></i> Cooperative Welfare Assurance</h5>
+              <p>5% of every transaction is safely retained in the worker's state accident & medical welfare fund.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency 30-Min SOS Section -->
+  <section class="emergency-section">
+    <div class="container">
+      <div class="emergency-bar-flex">
+        <div class="emergency-info-left">
+          <div class="emergency-icon-circle">
+            <i class="fa-solid fa-truck-medical"></i>
+          </div>
+          <div class="emergency-text">
+            <h3>Urgent Home Emergency? Get 30-Minute Cooperative Dispatch</h3>
+            <p>Immediate assistance for electrical short circuits, burst water pipes, or urgent patient care.</p>
+          </div>
+        </div>
+        <div class="emergency-cta-group">
+          <a href="booking.html?emergency=true" class="btn btn-emergency-white btn-lg">
+            <i class="fa-solid fa-bolt"></i> Book Emergency SOS
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 Popular Service Categories -->
+  <section class="section section-light" id="categories-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pretitle">Cooperative Trades</span>
+        <h2 class="section-title">Explore Verified Service Categories</h2>
+        <p class="section-desc">
+          Trained, certified, and vetted artisans across 10 essential trades operating under fair standardized cooperative rates.
+        </p>
+      </div>
+
+      <div class="categories-grid" id="homeCategoriesGrid">
+        <!-- 1. Electrician -->
+        <a href="services.html?category=electrician" class="category-card">
+          <div class="cat-icon-wrap"><i class="fa-solid fa-bolt"></i></div>
+          <h3 class="cat-name">Electrician</h3>
+          <p class="cat-desc">Wiring, switchboards, short circuits & home appliances</p>
+          <span class="cat-meta">From ₹249/hr • 140+ Workers</span>
+        </a>
+
+        <!-- 2. Plumber -->
+        <a href="services.html?category=plumber" class="category-card">
+          <div class="cat-icon-wrap"><i class="fa-solid fa-faucet-drip"></i></div>
+          <h3 class="cat-name">Plumber</h3>
+          <p class="cat-desc">Leakage repair, water motors, sanitary & pipe fittings</p>
+          <span class="cat-meta">From ₹220/hr • 115+ Workers</span>
+        </a>
+
+        <!-- 3. Carpenter -->
+        <a href="services.html?category=carpenter" class="category-card">
+          <div class="cat-icon-wrap"><i class="fa-solid fa-hammer"></i></div>
+          <h3 class="cat-name">Carpenter</h3>
+          <p class="cat-desc">Furniture repair, locks, modular fittings & wood polishing</p>
+          <span class="cat-meta">From ₹299/hr • 95+ Workers</span>
+        </a>
+
+        <!-- 4. Painter -->
+        <a href="services.html?category=painter" class="category-card">
+          <div class="cat-icon-wrap"><i class="fa-solid fa-paint-roller"></i></div>
+          <h3 class="cat-name">Painter</h3>
+          <p class="cat-desc">Interior & exterior wall painting, waterproof primer</p>
+          <span class="cat-meta">From ₹279/hr • 100+ Workers</span>
+        </a>
+
+        <!-- 5. Domestic Helper -->
+        <a href="services.html?category=domestic_helper" class="category-card">
+          <div class="cat-icon-wrap"><i class="fa-solid fa-broom"></i></div>
+          <h3 class="cat-name">Domestic Helper</h3>
+          <p class="cat-desc">Kitchen support, housekeeping, dusting & utensil care</p>
+          <span class="cat-meta">From ₹199/hr • 230+ Workers</span>
+        </a>
+
+        <!-- 6. Caregiver -->
+        <a href="services.html?category=caregiver" class="category-card">
+          <div class="cat-icon-wrap"><i class="fa-solid fa-hand-holding-heart"></i></div>
+          <h3 class="cat-name">Caregiver</h3>
+          <p class="cat-desc">Elderly nursing, patient assistance, child care & post-op</p>
+          <span class="cat-meta">From ₹349/hr • 85+ Workers</span>
+        </a>
+
+        <!-- 7. Driver -->
+        <a href="services.html?category=driver" class="category-card">
+          <div class="cat-icon-wrap"><i class="fa-solid fa-car"></i></div>
+          <h3 class="cat-name">Driver</h3>
+          <p class="cat-desc">Daily chauffeur, outstation trips & commercial vehicles</p>
+          <span class="cat-meta">From ₹280/hr • 160+ Workers</span>
+        </a>
+
+        <!-- 8. Gardener -->
+        <a href="services.html?category=gardener" class="category-card">
+          <div class="cat-icon-wrap"><i class="fa-solid fa-seedling"></i></div>
+          <h3 class="cat-name">Gardener</h3>
+          <p class="cat-desc">Lawn trimming, terrace garden, plant nutrition & soil mix</p>
+          <span class="cat-meta">From ₹210/hr • 70+ Workers</span>
+        </a>
+
+        <!-- 9. Cleaner -->
+        <a href="services.html?category=cleaner" class="category-card">
+          <div class="cat-icon-wrap"><i class="fa-solid fa-soap"></i></div>
+          <h3 class="cat-name">Cleaner</h3>
+          <p class="cat-desc">Deep home sanitation, sofa shampooing & disinfection</p>
+          <span class="cat-meta">From ₹260/hr • 180+ Workers</span>
+        </a>
+
+        <!-- 10. Technician -->
+        <a href="services.html?category=technician" class="category-card">
+          <div class="cat-icon-wrap"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+          <h3 class="cat-name">Technician</h3>
+          <p class="cat-desc">Air conditioner, refrigerator, microwave & RO water repair</p>
+          <span class="cat-meta">From ₹349/hr • 130+ Workers</span>
+        </a>
+      </div>
+
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="services.html" class="btn btn-primary btn-lg">
+          <i class="fa-solid fa-list-check"></i> View All Services & Rate Cards
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pretitle">Seamless Transparency</span>
+        <h2 class="section-title">How the Cooperative Marketplace Works</h2>
+        <p class="section-desc">
+          A four-step digital pipeline connecting households with vetted artisans while ensuring dignity and social security for workers.
+        </p>
+      </div>
+
+      <div class="how-it-works-grid">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-icon-wrap"><i class="fa-solid fa-magnifying-glass"></i></div>
+          <h3 class="step-title">Select Your Need</h3>
+          <p class="step-desc">
+            Choose from 10 certified trades. Choose a standard scheduled appointment or instant 30-min emergency SOS dispatch.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3 class="step-title">Cooperative Matching</h3>
+          <p class="step-desc">
+            The platform matches you with the closest police-verified worker affiliated with a registered District Labour Society.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-icon-wrap"><i class="fa-solid fa-tools"></i></div>
+          <h3 class="step-title">Quality Service</h3>
+          <p class="step-desc">
+            The worker arrives with certified tools and genuine parts, adhering strictly to state-notified minimum fair wage rates.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <div class="step-icon-wrap"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+          <h3 class="step-title">Fair Pay & Welfare</h3>
+          <p class="step-desc">
+            Direct digital settlement with zero aggregator exploitation. 5% goes directly to the Worker Health & Pension Welfare Pool.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Cooperative Section -->
+  <section class="section section-light" id="why-cooperative">
+    <div class="container">
+      <div class="why-coop-grid">
+        <div class="why-coop-content">
+          <span class="section-pretitle">The Cooperative Advantage</span>
+          <h2>Why Choose Cooperative Labour Over Private Aggregators?</h2>
+          <p style="color: var(--text-muted); font-size: 1.05rem;">
+            Private service aggregators charge workers 25% to 35% in commissions and use opaque surge pricing. Sahakari Shramik operates on cooperative principles: owned by workers, governed by standards, and built for citizen safety.
+          </p>
+
+          <div class="why-features-list">
+            <div class="why-feature-item">
+              <div class="why-feat-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+              <div class="why-feat-text">
+                <h4>Fair Standardized Wages</h4>
+                <p>Every rate is benchmarked to state minimum skilled labour standards. No hidden surge pricing during rain or holidays.</p>
+              </div>
+            </div>
+
+            <div class="why-feature-item">
+              <div class="why-feat-icon"><i class="fa-solid fa-id-card-clip"></i></div>
+              <div class="why-feat-text">
+                <h4>Institutional Trust & Police Verification</h4>
+                <p>Every worker is authenticated by their local Primary Labour Cooperative Society (PACS/LCS) and local police records.</p>
+              </div>
+            </div>
+
+            <div class="why-feature-item">
+              <div class="why-feat-icon"><i class="fa-solid fa-shield-heart"></i></div>
+              <div class="why-feat-text">
+                <h4>Accidental Insurance & Welfare Pool</h4>
+                <p>Workers are insured under group life and accidental disability schemes, providing dignity and protection for their families.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison Card -->
+        <div class="comparison-card">
+          <div class="comparison-header">
+            <div>Feature Comparison</div>
+            <div>Cooperative Portal</div>
+            <div>Private Aggregators</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="comparison-metric">Worker Commission Cut</div>
+            <div class="comparison-coop"><i class="fa-solid fa-check"></i> 0% Cut (Direct Pay)</div>
+            <div class="comparison-private"><i class="fa-solid fa-xmark"></i> 25% - 35% Cut</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="comparison-metric">Pricing Transparency</div>
+            <div class="comparison-coop"><i class="fa-solid fa-check"></i> Government Rate Card</div>
+            <div class="comparison-private"><i class="fa-solid fa-xmark"></i> Dynamic Surge Pricing</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="comparison-metric">Worker Welfare & Pension</div>
+            <div class="comparison-coop"><i class="fa-solid fa-check"></i> 5% Dedicated Welfare</div>
+            <div class="comparison-private"><i class="fa-solid fa-xmark"></i> Nil / Gig Worker Status</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="comparison-metric">Local Society Backing</div>
+            <div class="comparison-coop"><i class="fa-solid fa-check"></i> Registered LCS Society</div>
+            <div class="comparison-private"><i class="fa-solid fa-xmark"></i> Anonymous Subcontractor</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="comparison-metric">Accidental Insurance</div>
+            <div class="comparison-coop"><i class="fa-solid fa-check"></i> Up to ₹5 Lakh Covered</div>
+            <div class="comparison-private"><i class="fa-solid fa-xmark"></i> Conditional / None</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact / Statistics Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">18,500+</div>
+          <div class="stat-label">Verified Skilled Workers</div>
+          <div class="stat-subtext">Across 10 essential home trades</div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-number">₹6.4 Cr+</div>
+          <div class="stat-label">Direct Wages Disbursed</div>
+          <div class="stat-subtext">100% paid directly to workers</div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-number">48</div>
+          <div class="stat-label">Affiliated Labour Societies</div>
+          <div class="stat-subtext">Operating across urban & peri-urban districts</div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-number">99.1%</div>
+          <div class="stat-label">Citizen Satisfaction</div>
+          <div class="stat-subtext">Based on 42,000+ verified ratings</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Citizen & Worker Testimonials -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pretitle">Voice of Community</span>
+        <h2 class="section-title">Trusted by Citizens & Empowering Workers</h2>
+        <p class="section-desc">
+          Real stories of quality service, household safety, and worker socioeconomic transformation.
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="rating-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-quote">
+            "We had an emergency short circuit during heavy midnight rains. Through the emergency SOS feature, a certified electrician from the local cooperative reached our home within 25 minutes and resolved the issue at standard rates without any exploitation."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AK</div>
+            <div class="author-details">
+              <h5>Ananya Kulkarni</h5>
+              <p>Resident, Dwarka Sector 12</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="rating-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-quote">
+            "As an electrician for 10 years, private apps used to deduct 30% of my hard-earned money. Through Sahakari Shramik, I receive my full rate directly into my bank account, plus my family is covered under the cooperative health insurance."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: #1e3a8a; color: #fff;">RS</div>
+            <div class="author-details">
+              <h5>Ramesh Sharma</h5>
+              <p>Master Electrician, Delhi Co-op #DL-14</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="rating-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-quote">
+            "Booking a certified caregiver for my elderly mother was completely stress-free. Knowing that the helper is verified by a registered society with genuine background checks gives our entire family complete peace of mind."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">VM</div>
+            <div class="author-details">
+              <h5>Vikram Malhotra</h5>
+              <p>Homeowner, Vasant Kunj</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Worker Onboarding Call To Action -->
+  <div class="container">
+    <section class="cta-banner-section">
+      <div class="container">
+        <div class="cta-inner">
+          <div class="cta-left">
+            <h2>Are You a Skilled Artisan or Labour Society?</h2>
+            <p>
+              Join the National Cooperative Labour Federation. Enjoy zero platform cuts, health insurance coverage, direct DBT wage transfers, and verified recognition.
+            </p>
+          </div>
+          <div class="cta-buttons">
+            <a href="worker-register.html" class="btn btn-accent btn-lg">
+              <i class="fa-solid fa-id-card"></i> Register as a Worker
+            </a>
+            <a href="auth.html" class="btn btn-outline-white btn-lg">
+              Society Portal
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: About & Emblem -->
+        <div class="footer-col footer-about">
+          <div class="brand-logo" style="margin-bottom: 12px;">
+            <div class="logo-icon-box" style="width: 38px; height: 38px; font-size: 1.1rem;">
+              <i class="fa-solid fa-hands-holding-circle"></i>
+            </div>
+            <div class="brand-text">
+              <span class="brand-title" style="color: #fff; font-size: 1.15rem;">SAHAKARI SHRAMIK</span>
+              <span class="brand-subtitle" style="color: #94a3b8;">Cooperative Labour Platform</span>
+            </div>
+          </div>
+          <p>
+            A cooperative-owned digital service marketplace providing trusted household services while guaranteeing fair wages, worker welfare fund allocations, and social security.
+          </p>
+          <div style="font-size: 0.8rem; color: #64748b;">
+            Designed for Smart India Hackathon (SIH) prototype.
+          </div>
+        </div>
+
+        <!-- Col 2: Services -->
+        <div class="footer-col">
+          <h4>Top Trades</h4>
+          <ul class="footer-links">
+            <li><a href="services.html?category=electrician"><i class="fa-solid fa-angle-right"></i> Electrician Services</a></li>
+            <li><a href="services.html?category=plumber"><i class="fa-solid fa-angle-right"></i> Plumber Services</a></li>
+            <li><a href="services.html?category=carpenter"><i class="fa-solid fa-angle-right"></i> Carpenter Repairs</a></li>
+            <li><a href="services.html?category=caregiver"><i class="fa-solid fa-angle-right"></i> Caregiver & Nursing</a></li>
+            <li><a href="services.html?category=technician"><i class="fa-solid fa-angle-right"></i> Appliance Technician</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Quick Portals -->
+        <div class="footer-col">
+          <h4>Platform Links</h4>
+          <ul class="footer-links">
+            <li><a href="services.html"><i class="fa-solid fa-angle-right"></i> Browse Marketplace</a></li>
+            <li><a href="booking.html"><i class="fa-solid fa-angle-right"></i> Book a Worker</a></li>
+            <li><a href="customer-dashboard.html"><i class="fa-solid fa-angle-right"></i> Customer Dashboard</a></li>
+            <li><a href="worker-dashboard.html"><i class="fa-solid fa-angle-right"></i> Worker Portal</a></li>
+            <li><a href="worker-register.html"><i class="fa-solid fa-angle-right"></i> Worker Registration</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Grievance & Emergency Helpline -->
+        <div class="footer-col">
+          <h4>Emergency & Support</h4>
+          <div class="footer-helpline-box">
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: #cbd5e1; letter-spacing: 0.5px;">24x7 Cooperative Helpline</span>
+            <div class="helpline-phone">
+              <i class="fa-solid fa-phone-volume"></i> 1800-266-7472
+            </div>
+            <div style="font-size: 0.78rem; color: #94a3b8; margin-top: 4px;">Toll-free across all States</div>
+          </div>
+          <p style="font-size: 0.8rem; color: #94a3b8;">
+            Citizen Grievance Cell: <span style="color: #fff;">grievance@sahakarishramik.gov.in</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Sahakari Shramik Seva • Labour Cooperative Federations of India. All rights reserved.
+        </div>
+        <div style="display: flex; gap: 20px;">
+          <a href="#" style="color: #94a3b8;">Fair Wage Charter</a>
+          <a href="#" style="color: #94a3b8;">Welfare Policy</a>
+          <a href="#" style="color: #94a3b8;">Privacy Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

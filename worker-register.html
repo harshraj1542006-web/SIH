@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Worker Onboarding & Registration | Sahakari Shramik</title>
+  <meta name="description" content="Register as a skilled artisan under the Labour Cooperative Federation. Zero commission cuts, accidental insurance, and guaranteed fair wages.">
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Top Gov Bar -->
+  <div class="top-gov-bar">
+    <div class="container">
+      <div class="gov-badge-left">
+        <div class="gov-tricolor-line"><span></span><span></span><span></span></div>
+        <span>National Labour Cooperative Societies Network • Worker Welfare & Social Security Portal</span>
+      </div>
+      <div class="gov-badge-right">
+        <span style="color: #86efac;"><i class="fa-solid fa-shield-halved"></i> 100% Commission-Free Platform</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="brand-logo">
+          <div class="logo-icon-box">
+            <i class="fa-solid fa-hands-holding-circle"></i>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">SAHAKARI SHRAMIK</span>
+            <span class="brand-subtitle">Labour Cooperative Federation Portal</span>
+          </div>
+        </a>
+
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="booking.html" class="nav-link">Book Worker</a></li>
+          <li><a href="customer-dashboard.html" class="nav-link">Customer Hub</a></li>
+          <li><a href="worker-dashboard.html" class="nav-link">Worker Portal</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <div id="headerUserIndicator" class="nav-user-indicator" style="display: none;"></div>
+          <a href="auth.html" class="btn btn-outline btn-sm"><i class="fa-regular fa-user"></i> Worker Login</a>
+          <button class="mobile-toggle-btn" aria-label="Toggle navigation menu"><i class="fa-solid fa-bars"></i></button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <section class="page-banner" style="background: linear-gradient(135deg, #0f2b48 0%, #1e3a8a 100%);">
+    <div class="container">
+      <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.15); padding: 4px 12px; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 700; color: #fde047; margin-bottom: 12px;">
+        <i class="fa-solid fa-helmet-safety"></i> Cooperative Artisan Enrollment
+      </div>
+      <h1 class="page-banner-title">Register as a Certified Cooperative Worker</h1>
+      <p class="page-banner-subtitle">
+        Join over 18,500 skilled electricians, plumbers, carpenters, and technicians. Retain 100% of your earnings with zero private aggregator cuts, plus get enrolled in the Worker Accidental Insurance & Welfare Fund.
+      </p>
+    </div>
+  </section>
+
+  <!-- Registration Form Layout -->
+  <main class="section">
+    <div class="container" style="max-width: 860px;">
+      <div class="booking-wizard-card" style="padding: 40px 36px;">
+
+        <!-- Value Banner -->
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; background: var(--bg-alt); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color); text-align: center;">
+          <div>
+            <div style="font-weight: 800; color: var(--primary); font-size: 1.1rem;"><i class="fa-solid fa-wallet" style="color: var(--welfare-green);"></i> 0% Cut</div>
+            <div style="font-size: 0.78rem; color: var(--text-muted);">Direct Payout to Bank</div>
+          </div>
+          <div>
+            <div style="font-weight: 800; color: var(--primary); font-size: 1.1rem;"><i class="fa-solid fa-shield-heart" style="color: #ef4444;"></i> ₹5 Lakh</div>
+            <div style="font-size: 0.78rem; color: var(--text-muted);">Accidental Cover</div>
+          </div>
+          <div>
+            <div style="font-weight: 800; color: var(--primary); font-size: 1.1rem;"><i class="fa-solid fa-hand-holding-heart" style="color: var(--accent);"></i> 5% Welfare</div>
+            <div style="font-size: 0.78rem; color: var(--text-muted);">Retained Pension Pool</div>
+          </div>
+        </div>
+
+        <form id="workerRegistrationForm">
+
+          <!-- Section 1: Personal Details -->
+          <h3 style="font-size: 1.25rem; color: var(--primary); margin-bottom: 18px; display: flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-user-check" style="color: var(--accent);"></i> 1. Personal & Contact Information
+          </h3>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="workerRegName">Full Name (As per Aadhaar) <span class="required">*</span></label>
+              <input type="text" id="workerRegName" class="form-control" placeholder="e.g. Ramesh Sharma" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="workerRegPhone">Mobile Phone Number <span class="required">*</span></label>
+              <input type="tel" id="workerRegPhone" class="form-control" placeholder="+91 98112 XXXXX" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="workerRegAadhaar">Aadhaar Card / Government ID <span class="required">*</span></label>
+              <input type="text" id="workerRegAadhaar" class="form-control" placeholder="XXXX-XXXX-XXXX (For police verification)" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="workerRegCity">Operating District / City <span class="required">*</span></label>
+              <input type="text" id="workerRegCity" class="form-control" placeholder="e.g. New Delhi, Noida, Mumbai..." required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="workerRegAddress">Permanent Residential Address <span class="required">*</span></label>
+            <textarea id="workerRegAddress" class="form-control" rows="2" placeholder="House No, Village/Colony, Post Office, PIN Code" required></textarea>
+          </div>
+
+          <hr style="border: none; border-top: 1px solid var(--border-color); margin: 30px 0;">
+
+          <!-- Section 2: Cooperative Affiliation -->
+          <h3 style="font-size: 1.25rem; color: var(--primary); margin-bottom: 18px; display: flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-building-columns" style="color: var(--accent);"></i> 2. Cooperative Society Membership
+          </h3>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="workerRegSociety">Affiliated Labour Cooperative Society <span class="required">*</span></label>
+              <select id="workerRegSociety" class="form-control" required>
+                <option value="Delhi Central Labour Co-op #DL-14">Delhi Central Labour Cooperative Society Ltd.</option>
+                <option value="South Delhi Shramik Seva #DL-22">South Delhi Shramik Seva Cooperative Union</option>
+                <option value="Mumbai Greater Labour Federation #MH-08">Mumbai Greater Labour Federation Co-op</option>
+                <option value="Bengaluru Skilled Shramik Union #KA-12">Bengaluru Skilled Shramik Cooperative Union</option>
+                <option value="Noida-Ghaziabad Labour Co-op #UP-09">Noida-Ghaziabad Labour Welfare Co-op Society</option>
+                <option value="Jaipur Shramik Sahakari Samiti #RJ-04">Jaipur Shramik Sahakari Samiti</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="workerRegMemberId">Society Membership Roll No / PACS ID</label>
+              <input type="text" id="workerRegMemberId" class="form-control" placeholder="e.g. LCS-2024-8842">
+            </div>
+          </div>
+
+          <hr style="border: none; border-top: 1px solid var(--border-color); margin: 30px 0;">
+
+          <!-- Section 3: Trade & Skills -->
+          <h3 style="font-size: 1.25rem; color: var(--primary); margin-bottom: 18px; display: flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-screwdriver-wrench" style="color: var(--accent);"></i> 3. Trade Expertise & Certification
+          </h3>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="workerRegTrade">Primary Trade Category <span class="required">*</span></label>
+              <select id="workerRegTrade" class="form-control" required>
+                <option value="electrician">Electrician</option>
+                <option value="plumber">Plumber</option>
+                <option value="carpenter">Carpenter</option>
+                <option value="painter">Painter</option>
+                <option value="domestic_helper">Domestic Helper</option>
+                <option value="caregiver">Caregiver</option>
+                <option value="driver">Driver</option>
+                <option value="gardener">Gardener</option>
+                <option value="cleaner">Cleaner</option>
+                <option value="technician">Technician</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="workerRegExp">Years of Field Experience <span class="required">*</span></label>
+              <input type="number" id="workerRegExp" class="form-control" min="1" max="40" value="5" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="workerRegSkills">Key Trade Skills (Comma-separated) <span class="required">*</span></label>
+            <input type="text" id="workerRegSkills" class="form-control" placeholder="e.g. MCB Tripping, Inverter Setup, House Wiring, Conduit Pipe" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="workerRegBio">Short Professional Bio</label>
+            <textarea id="workerRegBio" class="form-control" rows="2" placeholder="Tell customers about your craftsmanship, punctuality, and tools you carry..."></textarea>
+          </div>
+
+          <!-- Section 4: Fair Wage & SOS -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="workerRegHourly">Proposed Hourly Base Wage (₹) <span class="required">*</span></label>
+              <input type="number" id="workerRegHourly" class="form-control" min="180" max="600" value="250" required>
+              <span class="form-text">Must comply with State Minimum Skilled Wage standards.</span>
+            </div>
+
+            <div class="form-group" style="display: flex; flex-direction: column; justify-content: center;">
+              <label class="filter-checkbox-item" style="font-weight: 700; color: var(--primary); margin-top: 18px;">
+                <input type="checkbox" id="workerRegEmergency" checked>
+                <span><i class="fa-solid fa-bolt" style="color: var(--danger);"></i> Ready for 30-min Emergency SOS Callouts</span>
+              </label>
+            </div>
+          </div>
+
+          <hr style="border: none; border-top: 1px solid var(--border-color); margin: 30px 0;">
+
+          <!-- Section 5: Direct Benefit Transfer (DBT) Payout Details -->
+          <h3 style="font-size: 1.25rem; color: var(--primary); margin-bottom: 18px; display: flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-building-columns" style="color: var(--welfare-green);"></i> 4. Direct Benefit Transfer (DBT) Bank Details
+          </h3>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="workerRegBank">Bank Account Number <span class="required">*</span></label>
+              <input type="text" id="workerRegBank" class="form-control" placeholder="11 to 16 digit account number" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="workerRegIfsc">Bank IFSC Code <span class="required">*</span></label>
+              <input type="text" id="workerRegIfsc" class="form-control" placeholder="e.g. SBIN0001234" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="workerRegUpi">UPI ID (For Immediate Job Settlement)</label>
+            <input type="text" id="workerRegUpi" class="form-control" placeholder="e.g. 9811234501@upi">
+          </div>
+
+          <div class="form-group" style="margin-top: 24px;">
+            <label class="filter-checkbox-item">
+              <input type="checkbox" required checked>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">
+                I solemnly declare that the details provided are accurate. I agree to abide by the Cooperative Fair Wage Charter and the 5% Worker Social Security Welfare deduction.
+              </span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-accent btn-lg" style="width: 100%; margin-top: 16px;">
+            <i class="fa-solid fa-id-card"></i> Submit Registration & Enter Worker Portal
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding: 0;">
+        <div>&copy; 2026 Sahakari Shramik Seva • Labour Cooperative Federations.</div>
+        <div>Worker Onboarding Helpline: <strong>1800-266-7472</strong></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.getElementById('workerRegistrationForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('workerRegName').value.trim();
+      const phone = document.getElementById('workerRegPhone').value.trim();
+      const city = document.getElementById('workerRegCity').value.trim();
+      const society = document.getElementById('workerRegSociety').value;
+      const category = document.getElementById('workerRegTrade').value;
+      const exp = Number(document.getElementById('workerRegExp').value);
+      const skillsStr = document.getElementById('workerRegSkills').value;
+      const bio = document.getElementById('workerRegBio').value.trim();
+      const hourlyRate = Number(document.getElementById('workerRegHourly').value);
+      const emergencyAvailable = document.getElementById('workerRegEmergency').checked;
+
+      const skills = skillsStr.split(',').map(s => s.trim()).filter(Boolean);
+
+      // Save worker to localStorage
+      const newWorker = CoopStore.addWorker({
+        name,
+        phone,
+        city,
+        society,
+        category,
+        experienceYears: exp,
+        skills,
+        bio: bio || `Certified ${category} with ${exp} years of cooperative experience.`,
+        hourlyRate,
+        emergencyAvailable
+      });
+
+      // Switch current session to this worker
+      CoopStore.setCurrentUser({
+        role: 'worker',
+        id: newWorker.id,
+        name: newWorker.name,
+        phone: newWorker.phone,
+        society: newWorker.society,
+        category: newWorker.category
+      });
+
+      // Show success modal
+      const modal = document.createElement('div');
+      modal.className = 'modal-overlay active';
+      modal.onclick = (e) => {
+        if (e.target === modal) modal.remove();
+      };
+      modal.innerHTML = `
+        <div class="modal-dialog" style="max-width: 500px; text-align: center; position: relative;">
+          <button class="modal-close-btn" style="position: absolute; top: 12px; right: 16px; z-index: 10;" onclick="this.closest('.modal-overlay').remove()">&times;</button>
+          <div class="modal-body" style="padding: 36px 24px;">
+            <div style="width: 70px; height: 70px; background: #dcfce7; color: #15803d; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 16px;">
+              <i class="fa-solid fa-id-badge"></i>
+            </div>
+            <h3 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 8px;">Registration Approved!</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+              Welcome to the Labour Cooperative Federation, <strong>${newWorker.name}</strong>. Your profile is verified and active.
+            </p>
+            <div style="background: var(--bg-alt); padding: 14px; border-radius: var(--radius-md); font-family: monospace; font-size: 1rem; color: var(--primary); margin-bottom: 24px;">
+              Worker Roll ID: <strong>${newWorker.id}</strong>
+            </div>
+            <div style="display: flex; gap: 12px;">
+              <a href="worker-dashboard.html" class="btn btn-primary" style="flex: 1;">
+                <i class="fa-solid fa-gauge-high"></i> Open Worker Portal
+              </a>
+              <a href="services.html" class="btn btn-outline" style="flex: 1;">
+                View on Marketplace
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+    });
+  </script>
+</body>
+</html>

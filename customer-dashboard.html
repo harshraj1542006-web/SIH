@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Dashboard | Sahakari Shramik</title>
+  <meta name="description" content="Track your active service requests, OTPs, booking history, and cooperative welfare contributions.">
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <!-- Hidden marker for dashboard.js -->
+  <div id="customerDashboardRoot" style="display: none;"></div>
+
+  <!-- Top Gov Bar -->
+  <div class="top-gov-bar">
+    <div class="container">
+      <div class="gov-badge-left">
+        <div class="gov-tricolor-line"><span></span><span></span><span></span></div>
+        <span>Citizen Services Portal • Verified Cooperative Network</span>
+      </div>
+      <div class="gov-badge-right">
+        <span style="color: #cbd5e1;"><i class="fa-solid fa-headset"></i> Support: 1800-266-7472</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="brand-logo">
+          <div class="logo-icon-box">
+            <i class="fa-solid fa-hands-holding-circle"></i>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">SAHAKARI SHRAMIK</span>
+            <span class="brand-subtitle">Labour Cooperative Federation Portal</span>
+          </div>
+        </a>
+
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="booking.html" class="nav-link">Book Worker</a></li>
+          <li><a href="customer-dashboard.html" class="nav-link active">Customer Hub</a></li>
+          <li><a href="worker-dashboard.html" class="nav-link">Worker Portal</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <div id="headerUserIndicator" class="nav-user-indicator" style="display: none;"></div>
+          <a href="booking.html" class="btn btn-accent btn-sm">
+            <i class="fa-solid fa-plus"></i> New Booking
+          </a>
+          <a href="auth.html" class="btn btn-outline btn-sm"><i class="fa-regular fa-user"></i> Switch Role</a>
+          <button class="mobile-toggle-btn" aria-label="Toggle navigation menu"><i class="fa-solid fa-bars"></i></button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Dashboard Container -->
+  <main class="dashboard-layout">
+    <div class="container">
+
+      <!-- Customer Header Profile Greeting -->
+      <div class="dashboard-user-header">
+        <div class="user-profile-summary">
+          <div class="user-avatar-large">
+            <i class="fa-regular fa-user"></i>
+          </div>
+          <div class="user-details-meta">
+            <h2>Namaste, <span id="customerGreetingName">Rajesh Kumar</span></h2>
+            <p>
+              <span id="customerPhoneSpan"><i class="fa-solid fa-phone"></i> +91 98765 43210</span>
+              <span>•</span>
+              <span id="customerCitySpan"><i class="fa-solid fa-location-dot"></i> New Delhi, NCR</span>
+              <span>•</span>
+              <span class="badge badge-verified"><i class="fa-solid fa-shield-check"></i> Citizen Verified</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="dashboard-header-actions">
+          <a href="services.html" class="btn btn-outline-white btn-sm">
+            <i class="fa-solid fa-magnifying-glass"></i> Explore Services
+          </a>
+          <a href="booking.html?emergency=true" class="btn btn-danger btn-sm">
+            <i class="fa-solid fa-bolt"></i> Emergency SOS
+          </a>
+        </div>
+      </div>
+
+      <!-- Metrics Row -->
+      <div class="metrics-grid">
+        <!-- Metric 1 -->
+        <div class="metric-card">
+          <div class="metric-icon-wrap metric-icon-blue">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+          </div>
+          <div class="metric-details">
+            <span class="metric-value" id="metricActiveBookings">0</span>
+            <span class="metric-label">Active Bookings</span>
+          </div>
+        </div>
+
+        <!-- Metric 2 -->
+        <div class="metric-card">
+          <div class="metric-icon-wrap metric-icon-green">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <div class="metric-details">
+            <span class="metric-value" id="metricCompletedJobs">0</span>
+            <span class="metric-label">Completed Services</span>
+          </div>
+        </div>
+
+        <!-- Metric 3 -->
+        <div class="metric-card">
+          <div class="metric-icon-wrap metric-icon-amber">
+            <i class="fa-solid fa-indian-rupee-sign"></i>
+          </div>
+          <div class="metric-details">
+            <span class="metric-value" id="metricTotalSpent">₹0</span>
+            <span class="metric-label">Total Fair Wages Paid</span>
+          </div>
+        </div>
+
+        <!-- Metric 4 -->
+        <div class="metric-card">
+          <div class="metric-icon-wrap metric-icon-purple">
+            <i class="fa-solid fa-heart-pulse"></i>
+          </div>
+          <div class="metric-details">
+            <span class="metric-value" id="metricWelfareContributed" style="color: var(--welfare-green);">₹0</span>
+            <span class="metric-label">Worker Welfare Contributed</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs Navigation -->
+      <div class="dashboard-tabs" id="customerTabs">
+        <button class="tab-btn active">
+          <i class="fa-solid fa-list-check"></i> Active Bookings
+          <span class="tab-count-badge" id="customerActiveCountBadge">0</span>
+        </button>
+        <button class="tab-btn">
+          <i class="fa-solid fa-receipt"></i> Service History & Receipts
+        </button>
+      </div>
+
+      <!-- Tab Panel 1: Active Bookings -->
+      <div id="activeBookingsTab">
+        <div id="customerActiveList">
+          <!-- Populated by dashboard.js -->
+        </div>
+      </div>
+
+      <!-- Tab Panel 2: Service History -->
+      <div id="historyTab" style="display: none;">
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Booking Ref</th>
+                <th>Service Name</th>
+                <th>Worker</th>
+                <th>Service Date</th>
+                <th>Status</th>
+                <th>Total Fare</th>
+                <th>Action / Rating</th>
+              </tr>
+            </thead>
+            <tbody id="customerHistoryTableBody">
+              <!-- Populated by dashboard.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding: 0;">
+        <div>&copy; 2026 Sahakari Shramik Seva • Citizen Portal.</div>
+        <div>Need Help? Dial Toll-Free: <strong>1800-266-7472</strong></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

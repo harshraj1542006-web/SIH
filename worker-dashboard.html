@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Worker Portal | Sahakari Shramik</title>
+  <meta name="description" content="Cooperative skilled worker portal for managing job dispatches, availability status, and welfare fund earnings.">
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <!-- Hidden marker for dashboard.js -->
+  <div id="workerDashboardRoot" style="display: none;"></div>
+
+  <!-- Top Gov Bar -->
+  <div class="top-gov-bar">
+    <div class="container">
+      <div class="gov-badge-left">
+        <div class="gov-tricolor-line"><span></span><span></span><span></span></div>
+        <span>National Labour Cooperative Portal • Official Worker Dispatch Station</span>
+      </div>
+      <div class="gov-badge-right">
+        <span style="color: #86efac;"><i class="fa-solid fa-hand-holding-heart"></i> Direct DBT Settlement Active</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="brand-logo">
+          <div class="logo-icon-box">
+            <i class="fa-solid fa-hands-holding-circle"></i>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">SAHAKARI SHRAMIK</span>
+            <span class="brand-subtitle">Labour Cooperative Federation Portal</span>
+          </div>
+        </a>
+
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="booking.html" class="nav-link">Book Worker</a></li>
+          <li><a href="customer-dashboard.html" class="nav-link">Customer Hub</a></li>
+          <li><a href="worker-dashboard.html" class="nav-link active">Worker Portal</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <div id="headerUserIndicator" class="nav-user-indicator" style="display: none;"></div>
+          <a href="worker-register.html" class="btn btn-accent btn-sm">
+            <i class="fa-solid fa-user-plus"></i> New Worker Reg
+          </a>
+          <a href="auth.html" class="btn btn-outline btn-sm"><i class="fa-regular fa-user"></i> Switch Role</a>
+          <button class="mobile-toggle-btn" aria-label="Toggle navigation menu"><i class="fa-solid fa-bars"></i></button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Worker Dashboard Layout -->
+  <main class="dashboard-layout">
+    <div class="container">
+
+      <!-- Worker Profile Header -->
+      <div class="dashboard-user-header">
+        <div class="user-profile-summary">
+          <div class="user-avatar-large" style="background: #1e3a8a; color: #fff;">
+            RS
+          </div>
+          <div class="user-details-meta">
+            <h2>Shri <span id="workerProfileName">Ramesh Sharma</span></h2>
+            <p>
+              <span id="workerProfileSociety"><i class="fa-solid fa-shield-halved"></i> Delhi Central Labour Co-op #DL-14</span>
+              <span>•</span>
+              <span class="badge badge-verified"><i class="fa-solid fa-circle-check"></i> Certified Master Electrician</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Availability Toggle Widget -->
+        <div class="availability-widget">
+          <span class="status-indicator-dot" id="workerStatusDot"></span>
+          <select id="workerStatusSelect" class="form-control" style="border: none; background: transparent; color: #fff; font-weight: 700; padding: 4px; cursor: pointer;">
+            <option value="online" style="color: #0f2b48;">Online (Available for Dispatch)</option>
+            <option value="busy" style="color: #0f2b48;">On Active Job (Busy)</option>
+            <option value="offline" style="color: #0f2b48;">Offline / On Leave</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Worker Metrics -->
+      <div class="metrics-grid">
+        <!-- Metric 1: Monthly Net Payout -->
+        <div class="metric-card">
+          <div class="metric-icon-wrap metric-icon-green">
+            <i class="fa-solid fa-wallet"></i>
+          </div>
+          <div class="metric-details">
+            <span class="metric-value" id="workerMetricNetEarnings" style="color: var(--welfare-green);">₹0</span>
+            <span class="metric-label">Direct Earnings (0% Commission)</span>
+          </div>
+        </div>
+
+        <!-- Metric 2: Welfare Fund Accumulation -->
+        <div class="metric-card">
+          <div class="metric-icon-wrap metric-icon-purple">
+            <i class="fa-solid fa-piggy-bank"></i>
+          </div>
+          <div class="metric-details">
+            <span class="metric-value" id="workerMetricWelfareFund">₹0</span>
+            <span class="metric-label">Social Security & Health Pool (5%)</span>
+          </div>
+        </div>
+
+        <!-- Metric 3: Jobs Completed -->
+        <div class="metric-card">
+          <div class="metric-icon-wrap metric-icon-blue">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <div class="metric-details">
+            <span class="metric-value" id="workerMetricCompletedJobs">0</span>
+            <span class="metric-label">Jobs Completed</span>
+          </div>
+        </div>
+
+        <!-- Metric 4: Quality Rating -->
+        <div class="metric-card">
+          <div class="metric-icon-wrap metric-icon-amber">
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <div class="metric-details">
+            <span class="metric-value" id="workerMetricRating">★ 4.9</span>
+            <span class="metric-label">Cooperative Trust Score</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs Navigation -->
+      <div class="dashboard-tabs" id="workerTabs">
+        <button class="tab-btn active">
+          <i class="fa-solid fa-inbox"></i> Incoming Job Requests
+          <span class="tab-count-badge" id="incomingCountBadge">0</span>
+        </button>
+        <button class="tab-btn">
+          <i class="fa-solid fa-briefcase"></i> Active Work in Progress
+          <span class="tab-count-badge" id="activeJobsCountBadge">0</span>
+        </button>
+        <button class="tab-btn">
+          <i class="fa-solid fa-file-invoice-dollar"></i> Direct Payout & Welfare Ledger
+        </button>
+      </div>
+
+      <!-- Tab Panel 1: Incoming Requests Queue -->
+      <div id="incomingRequestsTab">
+        <div id="workerIncomingRequestsList">
+          <!-- Populated by dashboard.js -->
+        </div>
+      </div>
+
+      <!-- Tab Panel 2: Active Jobs -->
+      <div id="activeJobsTab" style="display: none;">
+        <div id="workerActiveJobsList">
+          <!-- Populated by dashboard.js -->
+        </div>
+      </div>
+
+      <!-- Tab Panel 3: Earnings & Welfare Ledger -->
+      <div id="earningsLedgerTab" style="display: none;">
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Booking Ref</th>
+                <th>Service Done</th>
+                <th>Total Fare</th>
+                <th>5% Welfare Retained</th>
+                <th>Net Paid to Bank</th>
+                <th>Settlement Status</th>
+              </tr>
+            </thead>
+            <tbody id="workerEarningsTableBody">
+              <!-- Populated by dashboard.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding: 0;">
+        <div>&copy; 2026 Sahakari Shramik Seva • Worker Welfare Federation.</div>
+        <div>Worker Grievance Cell: <strong>1800-266-7472</strong></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
